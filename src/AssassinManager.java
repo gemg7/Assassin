@@ -9,6 +9,7 @@ public class AssassinManager {
     private static LinkedList<Assassin> players = new LinkedList<>();
     private static final List<String> weapons = Arrays.asList(
             "Candlestick", "Revolver", "Knife", "Lead Pipe", "Rope", "Wrench");
+    private String deathRecap = "";
 
     AssassinManager(String filePath) throws FileNotFoundException {
         Scanner input = new Scanner(new File(filePath));
@@ -49,13 +50,15 @@ public class AssassinManager {
                 }
             }
             players.remove(victim);
-            System.out.println(deathRecap(node, victim));
+            System.out.println(report(node, victim));
+            deathRecap += node.data + " killed " + victim.data + ", ";
         }
         System.out.print("The winner is: ");
         players.print();
+        System.out.println("Death recap: " + deathRecap);
     }
 
-    String deathRecap(Node<Assassin> killer, Node<Assassin> victim) {
+    String report(Node<Assassin> killer, Node<Assassin> victim) {
         String weapon = weapons.get(new Random().nextInt(weapons.size()));
         return "<" + killer.data.toString() + "> killed <" + victim.data.toString() + "> with a " + weapon;
     }
@@ -71,6 +74,7 @@ public class AssassinManager {
         }
         System.out.println();
     }
+
 
     public static void main(String[] args) throws FileNotFoundException {
         AssassinManager assassinManager = new AssassinManager("C:\\Users\\erica\\IdeaProjects\\Assassin\\src\\players");
