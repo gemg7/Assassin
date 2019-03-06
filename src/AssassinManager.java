@@ -1,4 +1,4 @@
-//Eric Anthony
+//Eric Anthony1
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
