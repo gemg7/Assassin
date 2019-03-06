@@ -73,7 +73,7 @@ public class AssassinManager {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        AssassinManager assassinManager = new AssassinManager("C:\\Users\\erica\\IdeaProjects\\Assassin\\src\\test");
+        AssassinManager assassinManager = new AssassinManager("C:\\Users\\erica\\IdeaProjects\\Assassin\\src\\players");
 
         assassinManager.play();
     }
